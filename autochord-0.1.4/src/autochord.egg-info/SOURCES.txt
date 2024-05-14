@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/autochord/__init__.py
+src/autochord.egg-info/PKG-INFO
+src/autochord.egg-info/SOURCES.txt
+src/autochord.egg-info/dependency_links.txt
+src/autochord.egg-info/requires.txt
+src/autochord.egg-info/top_level.txt
+src/autochord/res/nnls-chroma.so
