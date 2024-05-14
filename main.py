@@ -1,7 +1,7 @@
 import sys
 import os
 from io import BytesIO
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi import FastAPI, File, UploadFile, HTTPException, APIRouter
 from fastapi.responses import StreamingResponse
 
 import time
@@ -13,6 +13,12 @@ sys.path.insert(0, '/app/autochord-0.1.4/src')
 from autochord import recognize
 print("done.")
 app = FastAPI()
+
+router = APIRouter()
+
+@app.get("/")
+def read_root():
+    return {"Hello": "here is the blms-transceiver"}
 
 @app.post("/process-audio/")
 async def process_audio(file: UploadFile = File(...)):
@@ -46,3 +52,5 @@ async def process_audio(file: UploadFile = File(...)):
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+app.include_router(router, prefix="/api")
