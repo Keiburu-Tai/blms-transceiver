@@ -37,8 +37,6 @@ async def process_audio(file: UploadFile = File(...)):
         recognize(input_filepath, lab_fn=lab_filepath)
         end = time.time()
         
-        print(f"Processing time: {end - start:.5f} sec")
-        
         # .lab 파일을 메모리로 읽어오기
         with open(lab_filepath, "rb") as lab_file:
             lab_data = lab_file.read()
