@@ -18,7 +18,7 @@ router = APIRouter()
 
 @app.get("/")
 def read_root():
-    return {"Hello": "here is the blms-transceiver"}
+    return {"Hello": "here is the blms-transceiver."}
 
 @app.post("/process-audio/")
 async def process_audio(file: UploadFile = File(...)):
