@@ -11,5 +11,5 @@ import time
 start = time.time()
 recognize('source/dont_lazy.wav', lab_fn='source/dont_lazy.lab')
 end = time.time()
-
+#
 print(f"{end - start:.5f} sec")
