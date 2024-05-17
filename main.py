@@ -45,7 +45,7 @@ async def process_audio(file: UploadFile = File(...)):
         # 메모리에 저장된 파일을 디스크에 임시로 저장
         with open(input_filepath, "wb") as f:
             f.write(input_data)
-        
+        print("make .lab")
         # 오디오 파일 처리
         start = time.time()
         notes = recognize(input_filepath, lab_fn=lab_filepath)
@@ -56,6 +56,7 @@ async def process_audio(file: UploadFile = File(...)):
                      ]
             results = await asyncio.gather(*tasks)
         end = time.time()
+        print(results)
         new_notes = {}
         for result in results:
             new_notes.update(result)
