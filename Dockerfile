@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . /app
 # RUN pip install autochord
-RUN pip install scipy gdown librosa vamp lazycats fastapi uvicorn
+RUN pip install scipy gdown librosa vamp lazycats fastapi uvicorn openai mido
 
 EXPOSE 8000
 
