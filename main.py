@@ -150,7 +150,7 @@ async def process_audio(file: UploadFile = File(...)):
         filters = parse_lab_file(lab_filepath)
 
         startTime = time.time()
-        piano_note, piano_velocity, base_note = await get_gpt_notes(filters, client. 40)
+        piano_note, piano_velocity, base_note = await get_gpt_notes(filters, client, 40)
         endTime = time.time() - startTime
         print(f"Time taken: {endTime} seconds") 
 
