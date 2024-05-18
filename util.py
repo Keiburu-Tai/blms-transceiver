@@ -2,7 +2,7 @@ from ast import literal_eval
 from openai import AsyncOpenAI
 import json
 
-async def get_gpt_notes(notes: list, client: AsyncOpenAI):
+async def get_gpt_notes(notes: list, client: AsyncOpenAI, time: int):
     # Define the content as a single string with the notes included
     content = '''목적: 이 LLM은 주어진 특정 코드 진행을 기반으로 피아노와 베이스 노트 및 세기 정보를 처리하여, piano_note, piano_velocity, base_note, base_velocity 리스트로 반환합니다. 이 리스트들은 "Spain", "Take The A Train", "Come Rain Or Come Shine", "Taking A Chance On Love", "On Green Dolphin Street"와 같은 재즈 노래들의 느낌을 살려 생성됩니다.
     입력 형식:
@@ -69,7 +69,7 @@ async def get_gpt_notes(notes: list, client: AsyncOpenAI):
             },
             {
                 "role": "user",
-                "content":f" 출력예시의 리스트의 길이는 40이어야합니다. {str(notes)}"
+                "content":f" 출력예시의 리스트의 길이는 {str(time)}이어야합니다. {str(notes)}"
             }
         ]
     )
