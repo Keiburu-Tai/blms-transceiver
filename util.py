@@ -77,7 +77,7 @@ async def get_gpt_notes(notes: list, client: AsyncOpenAI, time: int):
     content = completion.choices[0].message.content
 
     parsed_content = json.loads(content)
-    
+    print(parsed_content)
     # 각 리스트를 추출
     piano_note = parsed_content['piano_note']
     piano_velocity = parsed_content['piano_velocity']
