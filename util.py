@@ -60,7 +60,7 @@ async def get_gpt_notes(notes: list, client: AsyncOpenAI, time: int):
     content += f"\n입력된 코드 진행: {str(notes)}"
 
     completion = await client.chat.completions.create(
-        model="gpt-4-turbo",
+        model="gpt-4o",
         response_format={"type": "json_object"},
         messages=[
             {
