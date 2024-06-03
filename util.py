@@ -58,7 +58,7 @@ async def get_gpt_notes(notes: list, client: AsyncOpenAI, time: int):
     '''
     # Concatenate the content with the notes
     content += f"\n입력된 코드 진행: {str(notes)}"
-
+    print("shot api")
     completion = await client.chat.completions.create(
         model="gpt-4o",
         response_format={"type": "json_object"},
@@ -74,6 +74,7 @@ async def get_gpt_notes(notes: list, client: AsyncOpenAI, time: int):
         ]
     )
     print(completion)
+    print("completion")
     content = completion.choices[0].message.content
 
     parsed_content = json.loads(content)
