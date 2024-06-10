@@ -54,7 +54,7 @@ jobs:
         env:
           IMAGE_TAG: ${{ github.run_number }}
         run: |
-          sed -i 's|image:.*|image: minjuncho/blms-transceiver:${{ env.IMAGE_TAG }}|' service/blms-transceiver/blms-transceiver.yaml
+          sed -i 's|image:.*transceiver.*|image: blms-transceiver:${{ env.IMAGE_TAG }}|' service/blms/values.yaml
 
       - name: commit and push
         run: |
